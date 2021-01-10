@@ -1,16 +1,26 @@
 <template>
   <div>
-    <van-notice-bar
-      left-icon="volume-o"
-      text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
-    />
+    <div>
+      <van-cell icon="fire" title="热门榜单" is-link to="index" />
+      <movie></movie>
+    </div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import { NoticeBar } from "vant";
+import { Cell, CellGroup } from "vant";
+import { Icon } from "vant";
+import movie from "../components/movie";
+import Movie from "../components/movie.vue";
 
-Vue.use(NoticeBar);
-export default {};
+Vue.use(Icon);
+Vue.use(Cell);
+Vue.use(CellGroup);
+export default {
+  name: "m",
+  components: {
+    movie,
+  },
+};
 </script>
