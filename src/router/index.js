@@ -4,30 +4,41 @@ import main from '../views/main'
 import category from '../views/category'
 import order from '../views/order'
 import profile from '../views/profile'
+import detail from '../components/detail.vue'
+import index from '../views/index.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
     name: 'index',
-    redirect: '/main'
+    redirect: '/index/main'
   },
   {
-    path: '/main',
-    name: 'main',
-    component: main
+    path: '/index',
+    name: 'index',
+    component: index,
+    children:[{
+      path:'main',
+      component: main
+    },{
+      path: 'category',
+      name: 'category',
+      component: category
+    },{
+      path: 'order',
+      name: 'order',
+      component: order
+    },{
+      path: 'profile',
+      name: 'profile',
+      component: profile
+    }
+  ]
   },{
-    path: '/category',
-    name: 'category',
-    component: category
-  },{
-    path: '/order',
-    name: 'order',
-    component: order
-  },{
-    path: '/profile',
-    name: 'profile',
-    component: profile
+    path: '/detail',
+    name: 'detail',
+    component: detail
   },
    
 ]

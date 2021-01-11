@@ -1,95 +1,73 @@
 <template>
-  <div id="movie" class="scrollx padding_20">
-    <a class="display_inlineBlock" v-for="item of movies" :key="item.index">
-      <div
-        class="height"
-        :style="'background:url(' + item.url + ') center center / cover'"
-      ></div>
-      <div>
-        <div class="font_blod">{{ item.name }}</div>
-        <div>
-          <van-icon name="star" v-for="num in item.grade" :key="num"/>
-          <van-icon name="star-o" v-for="num in 5-item.grade" :key="num" />
+  <div>
+    <van-cell>
+      <!-- 使用 title 插槽来自定义标题 -->
+      <template #title>
+        <div >
+          <div
+            class="bgimg float_l"
+            :style="'background:url(' + movie.img + ') center center / cover'"
+          ></div>
+          <div class="float_l">
+            <div><h3>{{movie.name}}</h3></div>
+            <div class="bottom">
+              <div>
+                评分:
+                <van-icon
+                  name="star"
+                  color="black"
+                  v-for="num in movie.grade"
+                  :key="num"
+                />
+                <van-icon
+                  name="star-o"
+                  color="black"
+                  v-for="num in 5 - movie.grade"
+                  :key="num"
+                />
+              </div>
+              <div>
+                主演:
+                <span v-for="item in movie.cast" :key="item" >{{ item + " " }}</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </a>
+      </template>
+      <template #right-icon>
+        <div>
+          <div class="tra">
+            <van-button type="info" size="small">观影</van-button>
+          </div>
+        </div>
+      </template>
+    </van-cell>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import { Grid, GridItem, Icon } from "vant";
-
-Vue.use(Grid);
-Vue.use(GridItem);
-Vue.use(Icon);
+import { Cell, CellGroup, Button } from "vant";
+Vue.use(Button);
+Vue.use(Cell);
+Vue.use(CellGroup);
 export default {
   name: "movie",
-  data() {
-    return {
-      movies: [
-        {
-          url: "https://img.yzcdn.cn/vant/apple-3.jpg",
-          name: "电影1",
-          grade: 2,
-        },
-        {
-          url: "https://img.yzcdn.cn/vant/apple-2.jpg",
-          name: "电影2",
-          grade: 4,
-        },
-        {
-          url: "https://img.yzcdn.cn/vant/apple-1.jpg",
-          name: "电影3",
-          grade: 1,
-        },
-        {
-          url: "https://img.yzcdn.cn/vant/apple-2.jpg",
-          name: "电影4",
-          grade: 0,
-        },
-        {
-          url: "https://img.yzcdn.cn/vant/apple-3.jpg",
-          name: "电影1",
-          grade: 3,
-        },
-      ],
-    };
-  },
+  props: ['movie',]
 };
 </script>
 
 <style>
-.scrollx {
-  overflow-x: scroll;
-  white-space: nowrap;
+.bgimg {
+  padding-top: 40%;
+  width: calc((100% - 20px) / 3);
 }
-.display_inline {
-  display: inline-block;
-  width: 100px;
-  width: calc((100% - 45px) / 3);
-  margin-right: 10px;
+.float_l {
+  float: left;
 }
-.padding_20 {
-  padding: 0 15px;
-}
-.display_inlineBlock {
-  display: inline-block;
-  width: 100px;
-  width: calc((100% - 45px) / 3);
-  margin-right: 10px;
-}
-.height {
-  padding-top: 140%;
-}
-.font_blod {
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 23px;
-  color: rgba(0, 0, 0, 0.9);
-  margin-top: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.tra {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 </style>
