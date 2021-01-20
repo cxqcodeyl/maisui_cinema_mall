@@ -6,6 +6,7 @@ import order from '../views/order'
 import profile from '../views/profile'
 import detail from '../components/detail.vue'
 import index from '../views/index.vue'
+import register from '../views/register.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -40,6 +41,11 @@ const routes = [
     name: 'detail',
     component: detail
   },
+  {
+    path: '/register',
+    name: 'register',
+    component: register
+  }
    
 ]
 

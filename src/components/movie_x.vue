@@ -45,31 +45,31 @@ export default {
       movies: [
         {
           url: "http://192.168.199.222:8080/#/detail?mov=d1",
-          img: "https://img.yzcdn.cn/vant/apple-3.jpg",
+          img: "http://192.168.199.222/image/p2576212449.jpg",
           name: "电影1",
           grade: 2,
         },
         {
           url: "http://192.168.199.222:8080/#/detail?mov=d2",
-          img: "https://img.yzcdn.cn/vant/apple-2.jpg",
+          img: "http://192.168.199.222/image/p2620434119.jpg",
           name: "电影2",
           grade: 4,
         },
         {
           url: "http://192.168.199.222:8080/#/detail?mov=d3",
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          img: "http://192.168.199.222/image/p2622450735.jpg",
           name: "电影3",
           grade: 1,
         },
         {
           url: "http://192.168.199.222:8080/#/detail?mov=d4",
-          img: "https://img.yzcdn.cn/vant/apple-2.jpg",
+          img: "http://192.168.199.222/image/p2627432193.jpg",
           name: "电影4",
           grade: 0,
         },
         {
           url: "http://192.168.199.222:8080/#/detail?mov=d5",
-          img: "https://img.yzcdn.cn/vant/apple-3.jpg",
+          img: "http://192.168.199.222/image/p2627467263.jpg",
           name: "电影5",
           grade: 3,
         },

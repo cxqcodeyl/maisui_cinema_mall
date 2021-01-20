@@ -20,7 +20,13 @@
         </div>
       </van-col>
     </van-row>
-    <van-dialog v-model="show" title="登录/注册" cancelButtonText="注册" :beforeClose="onLogin" show-cancel-button>
+    <van-dialog
+      v-model="show"
+      title="登录/注册"
+      cancelButtonText="注册"
+      :beforeClose="onLogin"
+      show-cancel-button
+    >
       <login></login>
     </van-dialog>
   </div>
@@ -31,8 +37,8 @@ import Vue from "vue";
 import { Col, Row } from "vant";
 import { Icon } from "vant";
 import { Search } from "vant";
-import { Dialog } from 'vant';
-import login from './login.vue'
+import { Dialog } from "vant";
+import login from "./login.vue";
 
 Vue.use(Dialog);
 Vue.use(Search);
@@ -47,14 +53,14 @@ export default {
     return {
       value: "",
       Address: "北京",
-      show: false
+      show: false,
     };
   },
   mounted() {
-    this.getAdd()
+    this.getAdd();
   },
-  comments:{
-    login
+  comments: {
+    login,
   },
   methods: {
     getAdd() {
@@ -78,14 +84,22 @@ export default {
         this.Address = address.replace("市", "");
       });
     },
-    doLogin(){
-      this.show=true;
+    doLogin() {
+      this.show = true;
     },
-    onLogin(action,done){
-      new Promise((resolve,reject) => {
-        setTimeout(()=>{done()},1000)
-      })
-    }
+    onLogin(action, done) {
+      if (action == "confirm") {
+        //登录功能
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            done();
+          }, 1000);
+        });
+      } else {
+        //跳转到注册界面
+        this.$router.push('/register')
+      }
+    },
   },
 };
 </script>

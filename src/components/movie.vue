@@ -26,9 +26,9 @@
                   :key="num"
                 />
               </div>
-              <div>
+              <div class="overflow_x">
                 主演:
-                <span v-for="item in movie.cast" :key="item" >{{ item + " " }}</span>
+                <span class="span_x" v-for="item in movie.cast" :key="item" >{{ item + "  " }}</span>
               </div>
             </div>
           </div>
@@ -69,5 +69,13 @@ export default {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.overflow_x{
+  width: 12rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.span_x{
+  display: inline-block;
 }
 </style>
